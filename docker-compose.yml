@@ -1,9 +1,18 @@
+version: "3.9"
+
 services:
   web:
     build: .
     container_name: django_web
     volumes:
-      - .:/app
+      - ./app:/app           # Monte le dossier app/ du projet
     ports:
-      - "8001:8000"
+      - "8001:8000"          # Accès depuis l'hôte sur le port 8001
     command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - PYTHONUNBUFFERED=1
+
+# docker compose build
+# docker compose run web django-admin startproject merchex .
+# docker compose up
+
