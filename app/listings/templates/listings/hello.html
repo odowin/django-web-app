@@ -1,0 +1,14 @@
+<h1>Hello Django !</h1>
+<p>Mes groupes préférés sont :</p>
+<ul>
+  {% for band in bands %}
+    <li>{{ band.name|upper }}</li>
+  {% endfor %}
+</ul>
+
+<p>J'ai {{ bands|length }} groupes préférés.</p>
+{% if bands|length > 3 %}
+  <p>Wow, j'ai beaucoup de groupes préférés !</p>
+{% else %}
+  <p>J'ai quelques groupes préférés.</p>
+{% endif %}
